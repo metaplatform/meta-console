@@ -1,0 +1,438 @@
+/*
+ * META Console
+ *
+ * @author META Platform <www.meta-platform.com>
+ * @license See LICENSE file distributed with this source code
+ */
+
+ * {
+ 	margin: 0px;
+ 	padding: 0px;
+ }
+
+ body {
+ 	font-family: "Roboto", sans-serif;
+ 	font-size: 13px;
+ 	line-height: 1.0;
+ 	font-weight: 300;
+ 	position: fixed;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	-webkit-font-smoothing: antialiased;
+ }
+
+ /*
+  * NAV
+  */
+nav#nav {
+	background: #444444;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	z-index: 100;
+	box-shadow: 2px 0px 16px rgba(0, 0, 0, 0.2);
+}
+
+nav#nav ul {
+	list-style: none;
+}
+
+nav#nav ul li a {
+	display: block;
+	width: 24px;
+	height: 24px;
+	padding: 14px;
+	font-size: 24px;
+	color: #aaaaaa;
+	transition: background 0.3s, color 0.3s;
+	-webkit-transition: background 0.3s, color 0.3s;
+}
+
+nav#nav ul li a:hover {
+	color: #ffffff;
+}
+
+nav#nav ul li a.router-link-active,
+nav#nav ul li a.router-link-active:hover {
+ 	background: #2196F3;
+ 	color: #ffffff;
+}
+
+/*
+* VIEW
+*/
+#view {
+	position: fixed;
+	left: 52px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 1;
+}
+
+/*
+ * CONSOLE CONTROLLER
+ */
+meta-api-console-controller,
+meta-storage-console-controller {
+	position: absolute;
+	background: #eeeeee;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	width: 550px;
+	overflow-y: scroll;
+	box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.2);
+	z-index: 10;
+}
+
+meta-api-console-controller > .section,
+meta-storage-console-controller > .section {
+	border-bottom: 1px solid #dadada;
+	padding: 16px;
+}
+
+meta-api-console-controller > .section:last-child,
+meta-storage-console-controller > .section:last-child {
+	border-bottom: 0px none;
+}
+
+meta-api-console-controller h2,
+meta-storage-console-controller h2 {
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: 13px;
+	margin-bottom: 16px;
+	color: #666666;
+}
+
+meta-api-console-controller .section form > p,
+meta-storage-console-controller .section form > p {
+	margin-bottom: 10px;
+} 
+
+meta-api-console-controller .section form > p:last-child,
+meta-storage-console-controller .section form > p:last-child {
+	margin-bottom: 0px;
+} 
+
+meta-api-console-controller .section p > input[type=text],
+meta-api-console-controller .section p > textarea,
+meta-storage-console-controller .section p > input[type=text],
+meta-storage-console-controller .section p > input[type=file],
+meta-storage-console-controller .section p > textarea {
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 8px;
+ 	font-family: "Roboto", sans-serif;
+ 	font-size: 13px;
+ 	font-weight: 300;
+ 	background: #ffffff;
+ 	border: 1px solid #dddddd;
+ 	border-style: solid solid none solid;
+ 	box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.1);
+}
+
+meta-api-console-controller .section p > input[type=text]:focus,
+meta-api-console-controller .section p > textarea:focus,
+meta-storage-console-controller .section p > input[type=text]:focus,
+meta-storage-console-controller .section p > textarea:focus {
+	outline: 0;
+}
+
+meta-api-console-controller .section p > input[type=text]:first-child,
+meta-api-console-controller .section p > textarea:first-child,
+meta-api-console-controller .section p > .editor:first-child,
+meta-storage-console-controller .section p > input[type=text]:first-child,
+meta-storage-console-controller .section p > textarea:first-child,
+meta-storage-console-controller .section p > .editor:first-child {
+	border-radius: 4px 4px 0px 0px;
+}
+
+meta-api-console-controller .section p > input[type=text]:last-child,
+meta-api-console-controller .section p > textarea:last-child,
+meta-api-console-controller .section p > .editor:last-child,
+meta-storage-console-controller .section p > input[type=text]:last-child,
+meta-storage-console-controller .section p > textarea:last-child,
+meta-storage-console-controller .section p > .editor:last-child {
+	border-radius: 0px 0px 4px 4px;
+	border-style: solid;
+}
+
+meta-api-console-controller .section p > input[type=text]:first-child:last-child,
+meta-api-console-controller .section p > textarea:first-child:last-child,
+meta-api-console-controller .section p > .editor:first-child:last-child,
+meta-storage-console-controller .section p > input[type=text]:first-child:last-child,
+meta-storage-console-controller .section p > textarea:first-child:last-child,
+meta-storage-console-controller .section p > .editor:first-child:last-child {
+	border-radius: 4px;
+}
+
+meta-api-console-controller button,
+meta-storage-console-controller button {
+	box-sizing: border-box;
+	padding: 8px 16px;
+ 	font-family: "Roboto", sans-serif;
+ 	font-size: 13px;
+ 	font-weight: 300;
+ 	background: #2196F3;
+ 	color: #ffffff;
+ 	border: 0px none;
+ 	border-radius: 3px;
+ 	cursor: pointer;
+ 	transition: background 0.3s;
+ 	-webkit-transition: background 0.3s;
+ 	margin-bottom: 10px;
+ 	margin-right: 10px;
+}
+
+meta-api-console-controller button:hover,
+meta-storage-console-controller button:hover {
+	background: #1976D2;
+}
+
+meta-api-console-controller button:focus,
+meta-storage-console-controller button:focus {
+	outline: 0;
+}
+
+meta-api-console-controller ul.items {
+	list-style: none;
+	margin-bottom: 20px;
+}
+
+meta-api-console-controller ul.items li {
+	display: block;
+	margin-bottom: 10px;
+	background: #fafafa;
+	padding: 8px 12px;
+	line-height: 20px;
+	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.15);
+}
+
+meta-api-console-controller ul.items li .remove {
+	display: block;
+	float: right;
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+	padding: 2px;
+	border-radius: 24px;
+	background: transparent;
+	color: #555555;
+	margin-right: -5px;
+	cursor: pointer;
+	transition: background 0.3s, color 0.3s;
+	-webkit-transition: background 0.3s, color 0.3s;
+}
+
+meta-api-console-controller ul.items li .remove:hover {
+	color: #ffffff;
+	background: #E53935;
+}
+
+meta-api-console-controller .editor,
+meta-storage-console-controller .editor {
+	display: block;
+	width: 100%;
+	height: 150px;
+	border: 1px solid #dddddd;
+	box-sizing: border-box;
+}
+
+/*
+ * CONSOLE LOG
+ */
+meta-api-console-log,
+meta-storage-console-log {
+	position: absolute;
+	background: #eeeeee;
+	left: 550px;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	overflow-y: scroll;
+	z-index: 1;
+}
+
+meta-api-console-log-entry,
+meta-storage-console-log-entry {
+	position: relative;
+	display: block;
+	background: #ffffff;
+	box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.2);
+	z-index: 10;
+	margin-bottom: 16px;
+}
+
+meta-api-console-log-entry .request,
+meta-storage-console-log-entry .request {
+	border-bottom: 1px dashed #dddddd;
+}
+
+meta-api-console-log-entry .request header,
+meta-api-console-log-entry .response header,
+meta-storage-console-log-entry .request header,
+meta-storage-console-log-entry .response header {
+	padding: 10px;
+}
+
+meta-api-console-log-entry .response header,
+meta-storage-console-log-entry .response header {
+	text-align: right;
+}
+
+meta-api-console-log-entry header .type,
+meta-storage-console-log-entry header .type {
+	display: inline-block;
+	font-size: 11px;
+	text-transform: uppercase;
+	background: #444444;
+	color: #ffffff;
+	padding: 5px;
+	border-radius: 4px;
+	margin-right: 10px;
+}
+
+meta-api-console-log-entry header .type[msgtype="call"]  				{ background: #EF6C00; }
+meta-api-console-log-entry header .type[msgtype="subscribe"]  			{ background: #0288D1; }
+meta-api-console-log-entry header .type[msgtype="unsubscribe"] 			{ background: #0097A7; }
+meta-api-console-log-entry header .type[msgtype="publish"]  			{ background: #00796B; }
+meta-api-console-log-entry header .type[msgtype="subscribe-queue"]  	{ background: #673AB7; }
+meta-api-console-log-entry header .type[msgtype="unsubscribe-queue"] 	{ background: #3F51B5; }
+meta-api-console-log-entry header .type[msgtype="enqueue"]  			{ background: #2196F3; }
+meta-api-console-log-entry header .type[msgtype="response"],
+meta-api-console-log-entry header .type[msgtype="success"]  			{ background: #558B2F; }
+meta-api-console-log-entry header .type[msgtype="error"]  				{ background: #E53935; }
+meta-api-console-log-entry header .type[msgtype="message"]  			{ background: #7B1FA2; }
+meta-api-console-log-entry header .type[msgtype="queue-message"]  		{ background: #C2185B; }
+
+meta-storage-console-log-entry header .type[msgtype="response"],
+meta-storage-console-log-entry header .type[msgtype="success"]  		{ background: #558B2F; }
+meta-storage-console-log-entry header .type[msgtype="error"]  			{ background: #E53935; }
+
+meta-api-console-log-entry header .uri,
+meta-storage-console-log-entry header .uri {
+	display: inline-block;
+	font-family: "Courier", fixed;
+	font-weight: 100;
+	line-height: 21px;
+}
+
+meta-api-console-log-entry .output,
+meta-storage-console-log-entry .output {
+	display: block;
+	width: 100%;
+	height: 150px;
+	border: 0px none;
+	box-sizing: border-box;
+}
+
+meta-api-console-log-entry .output:empty,
+meta-storage-console-log-entry .output:empty {
+	display: none;
+}
+
+meta-storage-console-log-entry .output-link {
+	display: block;
+	padding: 10px;
+	color: #2196F3;
+}
+
+meta-storage-console-log-entry .output-link:not([href]){
+	display: none;
+}
+
+meta-api-console-log-entry .response .loading,
+meta-storage-console-log-entry .response .loading {
+	padding: 16px;
+	text-align: center;
+}
+
+meta-api-console-log-entry .response:not([responded]) header,
+meta-api-console-log-entry .response:not([responded]) .output,
+meta-storage-console-log-entry .response:not([responded]) header,
+meta-storage-console-log-entry .response:not([responded]) .output {
+	display: none;
+}
+
+meta-api-console-log-entry .response[responded] .loading,
+meta-storage-console-log-entry .response[responded] .loading {
+	display: none;
+}
+
+/*
+ * DATAGRID
+ */
+.datagrid {
+	width: 100%;
+	border: 0px none;
+	border-spacing: 1px;
+	font-size: 13px;
+}
+
+.datagrid th,
+.datagrid td {
+	padding: 10px;
+}
+
+.datagrid th {
+	background: #ffffff;
+	font-weight: 500;
+	text-transform: uppercase;
+	border-bottom: 2px solid #dddddd;
+	cursor: pointer;
+	transition: background 0.3s, color 0.3s;
+	-webkit-transition: background 0.3s, color 0.3s;
+}
+
+.datagrid th.current {
+	color: #2196F3;
+}
+
+.datagrid th:hover {
+	background: #eeeeee;
+}
+
+.datagrid tbody > tr td {
+	background: #f3f3f3;
+}
+
+.datagrid tbody > tr:nth-child(odd) td{
+	background: #f9f9f9;
+}
+
+.datagrid tfoot td {
+	border-top: 2px solid #dddddd;
+}
+
+.datagrid tfoot td.pages {
+	text-align: right;
+}
+
+.datagrid tfoot td.pages span {
+	display: inline-block;
+	margin-left: 4px;
+	background: #eeeeee;
+	border-radius: 3px;
+	padding: 5px;
+	width: 20px;
+	text-align: center;
+	cursor: pointer;
+	font-weight: normal;
+	transition: background 0.3s, color 0.3s;
+	-webkit-transition: background 0.3s, color 0.3s;
+}
+
+.datagrid tfoot td.pages span:hover {
+	background: #dddddd;
+}
+
+.datagrid tfoot td.pages span.current,
+.datagrid tfoot td.pages span.current:hover {
+	background: #2196F3;
+	color: #ffffff;
+}
