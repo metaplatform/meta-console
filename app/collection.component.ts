@@ -12,7 +12,7 @@ import {ApiCollection} from 'meta-api-ng2/api';
 @Component({
     selector: 'meta-api-test-collection',
     template: `
-    	<table class="datagrid">
+    	<table class="datagrid" [attr.loaded]="collection.loaded">
     		<thead>
     			<tr>
     				<th role="button" [class.current]="sortColumn == 'first_name'" (click)="sortBy('first_name')">First name</th>

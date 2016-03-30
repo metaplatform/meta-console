@@ -8,7 +8,7 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
-import {createSecretCredentials, createBasicCredentials} from 'meta-api-ng2/api';
+import {createSecretCredentials, createBasicCredentials, createBasicCredentialsHash} from 'meta-api-ng2/api';
 import {ApiProvider} from 'meta-api-ng2/api';
 import {NavComponent} from './nav.component';
 
@@ -38,7 +38,11 @@ export class AppComponent {
 
     constructor(private api: ApiProvider){
 
-        this.api.connect("127.0.0.1:8080", createBasicCredentials("admin", "admin"));
+        console.log("CRED", createBasicCredentialsHash("test", "test"));
+
+        this.api.connect("127.0.0.1:8080/api/cube", () => {
+            return createBasicCredentials("test", "test");
+        });
         //this.api.connect("ws://127.0.0.1:5010/ws", createSecretCredentials("client", "client"));
 
     }
